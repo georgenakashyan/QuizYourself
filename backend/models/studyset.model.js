@@ -13,8 +13,9 @@ const studysetSchema = new Schema({
     flashcards: {
         type: Map,
         of: String,
+        required: true,
     },
-    public_access: Boolean,
+    public_access: {type: Boolean, required: true},
 }, {
     timestamps: true,
 });
