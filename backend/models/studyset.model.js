@@ -6,7 +6,6 @@ const studysetSchema = new Schema({
     owner_id: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
         minlength: 3
     },
