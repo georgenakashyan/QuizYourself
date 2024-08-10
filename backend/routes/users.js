@@ -7,6 +7,35 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/:id').get((req, res) => {
+    User.findById(req.params.id)
+        .then(users => res.json(users))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/:id').delete((req, res) => {
+    User.findByIdAndDelete(req.params.id)
+        .then(users => res.json('Studyset deleted.'))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/update/:id').post((req, res) => {
+    User.findById(req.params.id)
+        .then(users => {
+            users.first_name = req.body.first_name;
+            users.last_name = req.body.last_name;
+            users.email = req.body.email;
+            users.username = req.body.username;
+            users.owned_study_set_ids = req.body.owned_study_set_ids;
+            users.favorite_studyset_ids = req.body.favorite_studyset_ids;
+
+            users.save()
+                .then(() => res.json('User updated!'))
+                .catch(err => res.status(400).json('Error: ' + err));
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/add').post((req, res) => {
     const first_name = req.body.first_name;
     const last_name = req.body.last_name;
