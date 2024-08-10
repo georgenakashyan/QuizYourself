@@ -9,6 +9,18 @@ const studysetSchema = new Schema({
         trim: true,
         minlength: 3
     },
+    title: {
+        type: String,
+        required: true,
+        trim: true,
+        minlength: 1
+    },
+    description: {
+        type: String,
+        required: true,
+        trim: true,
+        minlength: 1
+    },
     flashcards: {
         type: Map,
         of: String,
