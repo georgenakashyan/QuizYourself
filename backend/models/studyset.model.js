@@ -10,10 +10,10 @@ const studySetSchema = new Schema({
         trim: true,
         minlength: 3
     },
-    flashcards: [{
-        question: String,
-        answer: String,
-    }],
+    flashcards: {
+        type: Map,
+        of: String,
+    },
     public_access: Boolean,
 }, {
     timestamps: true,
