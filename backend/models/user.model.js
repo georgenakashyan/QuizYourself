@@ -6,33 +6,35 @@ const userSchema = new Schema({
     first_name: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
-        minlength: 2
+        minlength: 2,
+        maxlength: 32,
     },
     last_name: {
         type: String,
         required: true,
-        unique: true,
         trim: true,
-        minlength: 2
+        minlength: 2,
+        maxlength: 32,
     },
     email: {
         type: String,
         required: true,
         unique: true,
         trim: true,
-        minlength: 2
+        minlength: 5,
+        maxlength: 64,
     },
     username: {
         type: String,
         required: true,
         unique: true,
         trim: true,
-        minlength: 3
+        minlength: 4,
+        maxlength: 18,
     },
-    owned_study_set_ids: [String],
-    favorite_studyset_ids: [String],
+    owned_study_set_ids: [{type: String, required: true}],
+    favorite_studyset_ids: [{type: String, required: true}],
 }, {
     timestamps: true,
 });
