@@ -31,8 +31,8 @@ const userSchema = new Schema({
         trim: true,
         minlength: 3
     },
-    ownedStudySetIDs: [String],
-    favoriteStudySetIDs: [String],
+    owned_study_set_ids: [String],
+    favorite_studyset_ids: [String],
 }, {
     timestamps: true,
 });
