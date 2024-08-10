@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const studySetSchema = new Schema({
+const studysetSchema = new Schema({
     owner_id: {
         type: String,
         required: true,
@@ -19,6 +19,6 @@ const studySetSchema = new Schema({
     timestamps: true,
 });
 
-const User = mongoose.model('User', userSchema);
+const Studyset = mongoose.model('Studyset', studysetSchema);
 
-module.exports = User;
+module.exports = Studyset;
